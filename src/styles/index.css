@@ -3,16 +3,25 @@ body {
   font-family: 'Merriweather', serif;
 }
 
-#top-container {
+.navbar {
+  background-color: #F2BE22;
+}
+
+#first-container {
   background-color: #EAF6F6;
+  height: fit-content;
   padding: 100px;
-  position: absolute;
+  position: relative;
   width: 100%;
 }
 
-.top-container-sub {
+.container-sub {
   justify-content: center;
   align-items: center;
+}
+
+.profile-pic {
+  width: 30vw;
 }
 
 .top-sparkles {
@@ -146,15 +155,6 @@ ul {
 .get-in-touch-text {
   margin-top: 40px;
   margin-bottom: 60px;
-}
-
-.profile-pic {
-  margin-top: 60px;
-}
-
-.profile-text {
-  width: 50%;
-  margin: auto;
 }
 
 .skill-row {
