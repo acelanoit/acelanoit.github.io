@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import FirstContainer from "./FirstContainer";
 import SecondContainer from "./SecondContainer";
+import ThirdContainer from "./ThirdContainer";
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <Navbar />
       <FirstContainer />
       <SecondContainer />
+      <ThirdContainer />
     </div>
   );
 };

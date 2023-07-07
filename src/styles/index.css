@@ -7,12 +7,18 @@ body {
   background-color: #F2BE22;
 }
 
-#first-container {
+#first-container,
+#second-container,
+#third-container {
   background-color: #EAF6F6;
   height: fit-content;
-  padding: 100px;
+  padding: 50px;
   position: relative;
   width: 100%;
+}
+
+#second-container {
+  background-color: #FFFFFF;
 }
 
 .container-sub {
@@ -22,6 +28,15 @@ body {
 
 .profile-pic {
   width: 30vw;
+}
+
+.gif {
+  width: 50%;
+}
+
+#canvas1 {
+  border: 1px solid black;
+  width: 50%;
 }
 
 .top-sparkles {
