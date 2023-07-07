@@ -19,10 +19,10 @@ function Navbar() {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
                 <li className="nav-item ms-auto">
-                  <Link to="/"><button className="btn btn-light btn-lg navbar-button">Home</button></Link>
+                  <Link to="/"><button className="btn btn-light btn-lg navbar-button m-2">Home</button></Link>
                 </li>
                 <li className="nav-item ms-auto">
-                  <Link to="/about"><button className="btn btn-light btn-lg navbar-button">About</button></Link>
+                  <Link to="/about"><button className="btn btn-light btn-lg navbar-button m-2">About</button></Link>
                 </li>
               </ul>
             </div>
