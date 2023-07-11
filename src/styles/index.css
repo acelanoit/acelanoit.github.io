@@ -7,9 +7,10 @@ body {
   background-color: #F2BE22;
 }
 
-#first-container,
-#second-container,
-#third-container {
+#top-container,
+#about,
+#meme,
+#projects {
   background-color: #EAF6F6;
   height: fit-content;
   padding: 50px;
@@ -17,7 +18,7 @@ body {
   width: 100%;
 }
 
-#second-container {
+#about {
   background-color: #FFFFFF;
 }
 
@@ -135,6 +136,11 @@ ul {
   font-size: 20px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+}
+
+.button-small {
+  font-size: 15px;
+  margin: 3px;
 }
 
 .btn:hover {

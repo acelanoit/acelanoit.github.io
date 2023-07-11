@@ -1,17 +1,19 @@
 import React from "react";
 // We import all the components we need in our app:
 import Navbar from "./Navbar";
-import FirstContainer from "./FirstContainer";
-import SecondContainer from "./SecondContainer";
-import ThirdContainer from "./ThirdContainer";
+import TopContainer from "./TopContainer";
+import About from "./About";
+import Projects from "./Projects";
+import Meme from "./Meme";
 
 export default function App() {
   return (
     <div>
       <Navbar />
-      <FirstContainer />
-      <SecondContainer />
-      <ThirdContainer />
+      <TopContainer />
+      <About />
+      <Projects />
+      <Meme />
     </div>
   );
 };

@@ -1,18 +1,18 @@
 import React from "react";
 import Canvas from "./Canvas";
 
-export default function ThirdContainer() {
+export default function Meme() {
   return (
-    <div id="third-container">
+    <div id="meme">
       <div className="container container-sub">
         <div class="row">
           <div class="col-12 col-md-6 my-5">
             <h3>How my coworkers see me</h3>
-            <img src="images/me.jpg" alt="homer-any-key" className="gif" />
+            <img src="images/me.jpg" alt="antonio" className="gif" />
           </div>
           <div class="col-12 col-md-6 my-5">
             <h3>How my family sees me</h3>
-            <img src="images/brain.jpg" alt="homer-any-key" className="gif" />
+            <img src="images/brain.jpg" alt="big-brain" className="gif" />
           </div>
           <div class="col-12 col-md-6 my-5">
             <h3>How I see myself</h3>

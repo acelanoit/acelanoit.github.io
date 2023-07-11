@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function SecondContainer() {
+export default function About() {
   return (
-    <div id="second-container">
+    <div id="about">
       <div className="container container-sub">
         <img class="profile-pic rounded-circle mt-5" src="images/profile.jpg" alt="profile" />
         <h2 class="mt-4">Hello, World!</h2>

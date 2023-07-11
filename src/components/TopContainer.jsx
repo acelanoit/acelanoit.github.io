@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function FirstContainer() {
+export default function TopContainer() {
   return (
-    <div id="first-container">
+    <div id="top-container">
       <div className="container container-sub">
         <img className="top-sparkles" src="images/sparkles.png" alt="sparkles-img" />
         <h1>I'm Antonio.</h1>
