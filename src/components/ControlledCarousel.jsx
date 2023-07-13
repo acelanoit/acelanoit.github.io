@@ -2,12 +2,15 @@ import React from "react";
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-export default function ControlledCarousel() {
+export default function ControlledCarousel(props) {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+
+  console.log(props);
+  console.log(props.img1);
 
   return (
     <div className="w-50 mx-auto my-2">
@@ -15,24 +18,38 @@ export default function ControlledCarousel() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="images/me.jpg"
+            src={props.img1}
             alt="First slide"
           />
+          <img
+            className="d-block w-100"
+            src={props.blank}
+            alt="blank"
+          />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="images/brain.jpg"
+            src={props.img2}
             alt="Second slide"
           />
+          <img
+            className="d-block w-100"
+            src={props.blank}
+            alt="blank"
+          />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="images/homer.gif"
+            src={props.img3}
             alt="Third slide"
           />
-
+          <img
+            className="d-block w-100"
+            src={props.blank}
+            alt="blank"
+          />
         </Carousel.Item>
       </Carousel>
     </div>

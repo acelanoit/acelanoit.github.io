@@ -115,6 +115,25 @@ ul {
   display: block;
 }
 
+@media (max-width: 767px) {
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    display: none;
+  }
+}
+
+/* .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  position: relative;
+  bottom: -25vh;
+}
+
+.carousel-indicators {
+  position: relative;
+  bottom: -40vh;
+} */
+
 .bottom-container {
   background-color: #66BFBF;
   margin: 60px auto 0;
