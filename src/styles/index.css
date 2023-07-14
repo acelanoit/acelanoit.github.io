@@ -123,16 +123,17 @@ ul {
   }
 }
 
-/* .carousel-control-prev-icon,
+.carousel-control-prev-icon {
+margin-left: -350%;
+}
+
 .carousel-control-next-icon {
-  position: relative;
-  bottom: -25vh;
+  margin-right: -350%;
 }
 
 .carousel-indicators {
-  position: relative;
-  bottom: -40vh;
-} */
+  margin-bottom: -15vh;
+}
 
 .bottom-container {
   background-color: #66BFBF;

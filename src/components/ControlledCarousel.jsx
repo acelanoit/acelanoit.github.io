@@ -21,11 +21,6 @@ export default function ControlledCarousel(props) {
             src={props.img1}
             alt="First slide"
           />
-          <img
-            className="d-block w-100"
-            src={props.blank}
-            alt="blank"
-          />
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -33,22 +28,12 @@ export default function ControlledCarousel(props) {
             src={props.img2}
             alt="Second slide"
           />
-          <img
-            className="d-block w-100"
-            src={props.blank}
-            alt="blank"
-          />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
             src={props.img3}
             alt="Third slide"
-          />
-          <img
-            className="d-block w-100"
-            src={props.blank}
-            alt="blank"
           />
         </Carousel.Item>
       </Carousel>
