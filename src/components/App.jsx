@@ -5,6 +5,7 @@ import TopContainer from "./TopContainer";
 import About from "./About";
 import Projects from "./Projects";
 import Meme from "./Meme";
+import Skills from "./Skills";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <TopContainer />
       <About />
       <Projects />
+      <Skills />
       <Meme />
     </div>
   );

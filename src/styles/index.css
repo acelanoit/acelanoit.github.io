@@ -135,6 +135,10 @@ margin-left: -350%;
   margin-bottom: -15vh;
 }
 
+.devicon {
+  width: 5vw;
+}
+
 .bottom-container {
   background-color: #66BFBF;
   margin: 60px auto 0;
