@@ -17,12 +17,8 @@ body {
 }
 
 .container-sub {
-  justify-content: center;
   align-items: center;
-}
-
-.profile-pic {
-  width: 28vw;
+  justify-content: center;
 }
 
 .gif {
@@ -65,6 +61,14 @@ h2 {
   font-size: 5vw;
   color: #66BFBF;
   font-weight: bold;
+}
+
+.profile-pic {
+  width: 25vw;
+}
+
+.about-box {
+  display: flex;
 }
 
 h3 {
