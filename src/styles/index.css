@@ -3,7 +3,7 @@ body {
   font-family: 'Merriweather', serif;
 }
 
-.navbar {
+.navbar, #footer {
   background-color: #F2BE22;
 }
 
@@ -21,34 +21,13 @@ body {
   justify-content: center;
 }
 
-.gif {
-  width: 50%;
-}
-
-#canvas1 {
-  border: 1px solid black;
-  width: 50%;
-}
-
 .top-sparkles {
   width: 15%;
   position: absolute;
   left: 78%;
 }
 
-.earth {
-  width: 25%;
-}
-
-.bottom-sparkles {
-  width: 10%;
-  position: absolute;
-  left: 15%;
-  top: 30%;
-}
-
 h1 {
-  margin: auto 0;
   font-family: 'Sacramento', cursive;
   font-size: 10vw;
   font-weight: bold;
@@ -63,24 +42,27 @@ h2 {
   font-weight: bold;
 }
 
-.profile-pic {
-  width: 25vw;
+span {
+  text-decoration: underline;
+}
+
+.earth {
+  width: 25%;
+}
+
+.bottom-sparkles {
+  width: 10%;
+  position: absolute;
+  left: 15%;
+  top: 30%;
 }
 
 .about-box {
   display: flex;
 }
 
-h3 {
-  font-family: 'Montserrat', sans-serif;
-  color: #11999E;
-}
-
-hr {
-  border: 8px dotted silver;
-  width: 3%;
-  border-bottom-style: none;
-  margin: 90px auto;
+.profile-pic {
+  width: 25vw;
 }
 
 p {
@@ -88,29 +70,9 @@ p {
   line-height: 2;
 }
 
-span {
-  text-decoration: underline;
-}
-
-a {
-  color: #11999E;
-  text-decoration: none;
+h3 {
   font-family: 'Montserrat', sans-serif;
-  margin: 10px 20px;
-}
-
-a:hover {
-  color: #EAF6F6;
-}
-
-ul {
-  display: inline-block;
-  margin: auto 0;
-}
-
-.attributions {
-  font-size: small;
-  display: block;
+  color: #11999E;
 }
 
 @media (max-width: 767px) {
@@ -127,20 +89,6 @@ margin-left: -350%;
 
 .carousel-control-next-icon {
   margin-right: -350%;
-}
-
-.carousel-indicators {
-  margin-bottom: -15vh;
-}
-
-.devicon {
-  width: 5vw;
-}
-
-.bottom-container {
-  background-color: #66BFBF;
-  margin: 60px auto 0;
-  padding: 40px;
 }
 
 .button {
@@ -165,34 +113,33 @@ margin-left: -350%;
   text-decoration: none;
 }
 
-.coding-gif {
-  width: 25%;
-  float: left;
-  margin-right: 30px;
+.carousel-indicators {
+  margin-bottom: -15vh;
 }
 
-.copyright {
-  color: #EAF6F6;
-  font-size: small;
-  margin: 40px auto;
+.devicon {
+  width: 5vw;
 }
 
-.customer-service-img {
-  width: 25%;
-  float: right;
-  margin-left: 30px;
-  position: relative;
-  bottom: 16px;
-}
-
-.get-in-touch-text {
-  margin-top: 40px;
-  margin-bottom: 60px;
-}
-
-.skill-row {
+.gif {
   width: 50%;
-  margin: 100px auto;
-  text-align: left;
-  line-height: 2;
+}
+
+#canvas1 {
+  border: 1px solid black;
+  width: 50%;
+}
+
+.copyright, .attributions {
+  color: #EAF6F6;
+  display: block;
+  font-size: small;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #11999E;
 }

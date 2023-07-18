@@ -4,7 +4,7 @@ export default function Skills() {
   return (
     <div id="skills">
       <div className="container container-sub p-2 pt-5 pb-5">
-        <h2>The languages I speak:</h2>
+        <h2 className="mb-5">The languages I speak:</h2>
         <div className="row">
           <div className="col-6 col-md-4 col-lg-2 my-3">
             <img className="devicon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original-wordmark.svg" alt="bootstrap" />
