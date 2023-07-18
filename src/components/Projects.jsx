@@ -4,7 +4,7 @@ import ControlledCarousel from "./ControlledCarousel";
 export default function Projects() {
   return (
     <div id="projects">
-      <div className="container container-sub">
+      <div className="container container-sub p-2 pt-5 pb-5">
         <h2>A selection of my projects:</h2>
         <div className="row">
           <div className="col-12 col-md-12 col-lg-6 my-5">
