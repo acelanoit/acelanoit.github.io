@@ -8,7 +8,7 @@ export default function Meme() {
         <h2 className="mb-5">Say it with a meme:</h2>
         <div className="row">
           <div className="col-12 col-md-6 mb-5">
-            <h3>How my coworkers see me</h3>
+            <h3>How my team sees me</h3>
             <img src="images/me.jpg" alt="antonio" className="gif" />
           </div>
           <div className="col-12 col-md-6 mb-5">
