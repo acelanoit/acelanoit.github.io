@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Skills() {
   return (
-    <div id="about">
+    <div id="skills">
       <div className="container container-sub">
         <h2 className="my-4">The languages I speak:</h2>
         <div className="row">

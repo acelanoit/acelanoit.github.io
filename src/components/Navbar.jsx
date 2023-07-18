@@ -15,14 +15,19 @@ function Navbar() {
           <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
               <li className="nav-item ms-auto">
-                <Link to="/"><button className="btn btn-lg navbar-button m-2 button">Home</button></Link>
+                <a href="#about"><button className="btn btn-lg navbar-button m-1 button">About</button></a>
               </li>
               <li className="nav-item ms-auto">
-                <Link to="/about"><button className="btn btn-lg navbar-button m-2 button">About</button></Link>
+                <a href="#projects"><button className="btn btn-lg navbar-button m-1 button">Work</button></a>
+              </li>
+              <li className="nav-item ms-auto">
+                <a href="#skills"><button className="btn btn-lg navbar-button m-1 button">Skills</button></a>
+              </li>
+              <li className="nav-item ms-auto">
+                <a href="#meme"><button className="btn btn-lg navbar-button m-1 button">More</button></a>
               </li>
             </ul>
           </div>

@@ -5,7 +5,7 @@ export default function Projects() {
   return (
     <div id="projects">
       <div className="container container-sub">
-        <h2>Some of my best projects:</h2>
+        <h2>A selection of my projects:</h2>
         <div className="row">
           <div className="col-12 col-md-12 col-lg-6 my-5">
             <h3>List of Employees</h3>
