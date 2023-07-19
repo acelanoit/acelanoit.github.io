@@ -9,9 +9,6 @@ export default function ControlledCarousel(props) {
     setIndex(selectedIndex);
   };
 
-  console.log(props);
-  console.log(props.img1);
-
   return (
     <div className="w-50 mx-auto my-2">
       <Carousel activeIndex={index} onSelect={handleSelect} className="carousel-dark" interval={null}>
