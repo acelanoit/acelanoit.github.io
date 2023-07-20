@@ -74,7 +74,7 @@ export default function Canvas() {
 
     function playerDraw(ctx) {
       const player = playerIdleImages[playerFrame];
-      ctx.drawImage(player, 762, 208, 556, 472, canvas.width * 0.05, canvas.height - spriteHeight * playerScale - (canvas.height * 0.3), spriteWidth * playerScale, spriteHeight * playerScale);
+      ctx.drawImage(player, 762, 208, 556, 472, canvas.width * 0.05, canvas.height - spriteHeight * playerScale - (canvas.height * 0.25), spriteWidth * playerScale, spriteHeight * playerScale);
     }
 
     function enemyUpdate(deltaTime) {
@@ -88,7 +88,21 @@ export default function Canvas() {
     }
 
     function enemyDraw(ctx) {
-      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, canvas.height - 171 * enemyScale - (canvas.height * 0.3), 229 * enemyScale, 171 * enemyScale);
+      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, canvas.height - 171 * enemyScale - (canvas.height * 0.25), 229 * enemyScale, 171 * enemyScale);
+    }
+
+    const texts = ["It's debug time!", "All bugs shall fall!", "Bug slayer, at your service!", "Bug squasher extraordinaire!", "Bug exterminator on the loose!", "We battle bugs and conquer!", "No bug is safe!", "Annihilate all bugs!", "Let the bug-bashing dance begin!", "Calling all bug busters!"];
+    const randomText = texts[(Math.floor(Math.random() * texts.length))];
+    let textDisplayed = false;
+
+    function drawText(text) {
+      ctx.font = "1rem Ghotic";
+      ctx.fillStyle = "white";
+      ctx.textAlign = "center";
+      ctx.fillText(text, canvas.width * 0.5, canvas.height * 0.47);
+      setTimeout(() => {
+        textDisplayed = true;;
+      }, 2000);
     }
 
     let lastTime = 0;
@@ -102,11 +116,12 @@ export default function Canvas() {
       const deltaTime = timeStamp - lastTime;
       lastTime = timeStamp;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(backgrounds[3], 0, 0, canvas.width, canvas.height);
+      ctx.drawImage(backgrounds[0], 0, 0, canvas.width, canvas.height);
       playerUpdate(deltaTime);
       playerDraw(ctx);
       enemyUpdate(deltaTime);
       enemyDraw(ctx);
+      if (!textDisplayed) drawText(randomText);
       requestAnimationFrame(animate);
     }
   }, []);

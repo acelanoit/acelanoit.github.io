@@ -22,7 +22,7 @@ export default function Meme() {
           <div className="col-12 col-md-6">
             <h3>How I really am</h3>
             <Canvas />
-            <p>This is not a gif, but JavaScript magic! Noticed how the bug always appears in a random spot?</p>
+            <p>This is not a gif, but JavaScript magic! Notice how the background, the bug's position, and my war cry are chosen randomly?</p>
           </div>
         </div>
       </div>
