@@ -72,8 +72,11 @@ export default function Canvas() {
       } else frameTimer += deltaTime;
     }
 
-    function playerDraw(ctx) {
-      const player = playerIdleImages[playerFrame];
+    function playerDraw(ctx, stance) {
+      let player = null;
+      if (stance === "idle") player = playerIdleImages[playerFrame];
+      if (stance === "run") player = playerRunImages[playerFrame];
+      if (stance === "attack") player = playerAttackImages[playerFrame];
       ctx.drawImage(player, 762, 208, 556, 472, canvas.width * 0.05, canvas.height - spriteHeight * playerScale - (canvas.height * 0.25), spriteWidth * playerScale, spriteHeight * playerScale);
     }
 
@@ -95,14 +98,14 @@ export default function Canvas() {
     const randomText = texts[(Math.floor(Math.random() * texts.length))];
     let textDisplayed = false;
 
-    function drawText(text) {
+    function drawText(text, deltatime) {
       ctx.font = "1rem Ghotic";
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
       ctx.fillText(text, canvas.width * 0.5, canvas.height * 0.47);
       setTimeout(() => {
         textDisplayed = true;;
-      }, 2000);
+      }, (2000 + deltatime));
     }
 
     let lastTime = 0;
@@ -118,10 +121,10 @@ export default function Canvas() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(backgrounds[0], 0, 0, canvas.width, canvas.height);
       playerUpdate(deltaTime);
-      playerDraw(ctx);
+      playerDraw(ctx, "idle");
       enemyUpdate(deltaTime);
       enemyDraw(ctx);
-      if (!textDisplayed) drawText(randomText);
+      if (!textDisplayed) drawText(randomText, deltaTime);
       requestAnimationFrame(animate);
     }
   }, []);
