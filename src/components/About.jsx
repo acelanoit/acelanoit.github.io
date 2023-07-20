@@ -11,7 +11,7 @@ export default function About() {
           </div>
           <div className="col-12 col-md-6 container-sub about-box">
             <div>
-              <div className="mb-3 d-none d-sm-block d-md-none"></div>
+              <div className="mb-3 d-block d-md-none"></div>
               <h2>Hello, World!</h2>
               <p className="mx-2 mb-0">As an aspiring coding professional, I have pursued my passion for programming through various avenues, including completing an online coding course and recently graduating from the prestigious Le Wagon coding bootcamp. While I appreciate the aesthetics and user experience considerations of front-end development, my true passion lies in what remains invisible to the user and in building the logic of applications.</p>
             </div>

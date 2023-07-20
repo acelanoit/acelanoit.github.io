@@ -11,6 +11,9 @@ export default function Canvas() {
     const background = new Image();
     background.src = "images/canvas-assets/background.png";
 
+    const enemy = new Image();
+    enemy.src = "images/canvas-assets/bug.png";
+
     const playerIdle0 = new Image();
     const playerIdle1 = new Image();
     const playerIdle2 = new Image();
@@ -60,12 +63,12 @@ export default function Canvas() {
     playerAttackImages.forEach((playerAttackImage, index) => playerAttackImage.src = `images/canvas-assets/Knight_03__ATTACK_00${index}.png`);
 
     const images = playerIdleImages.concat(playerRunImages, playerAttackImages);
-    images.push(background);
+    images.push(background, enemy);
 
     const spriteWidth = 1800;
     const spriteHeight = 1000;
     const scale = 0.05;
-    let frame = 0;
+    let playerFrame = 0;
     const imageCount = playerIdleImages.length;
     let imagesLoaded = 0;
 
@@ -86,15 +89,22 @@ export default function Canvas() {
       // Sprite animation:
       if (frameTimer > frameInterval) {
         frameTimer = 0;
-        if (frame < 9) frame++;
-        else frame = 0;
+        if (playerFrame < 9) playerFrame++;
+        else playerFrame = 0;
       } else frameTimer += deltaTime;
     }
 
     function playerDraw(ctx) {
-      const player = playerIdleImages[frame];
+      const player = playerIdleImages[playerFrame];
       ctx.drawImage(player, 762, 208, 556, 472, canvas.width * 0.05, canvas.height - spriteHeight * scale - (canvas.height * 0.3), spriteWidth * scale, spriteHeight * scale);
     }
+
+    // function enemyUpdate(deltaTime) {
+
+    //   // Sprite animation:
+    //   if (enemyFrame < 9) enemyFrame++;
+    //   else enemyFrame = 0;
+    // }
 
     let lastTime = 0;
 
