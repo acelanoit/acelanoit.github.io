@@ -1,12 +1,5 @@
 import React from "react";
 
-// We use Route in order to define the different routes of our application:
-import {
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
-
 function Navbar() {
   return (
     <div>
@@ -21,26 +14,18 @@ function Navbar() {
                 <a href="#about"><h3 className="navbar-link m-2">About</h3></a>
               </li>
               <li className="nav-item ms-auto">
-                <a href="#projects"><h3 className="navbar-link m-2">Work</h3></a>
-              </li>
-              <li className="nav-item ms-auto">
                 <a href="#skills"><h3 className="navbar-link m-2">Skills</h3></a>
               </li>
               <li className="nav-item ms-auto">
-                <a href="#meme"><h3 className="navbar-link m-2">More</h3></a>
+                <a href="#projects"><h3 className="navbar-link m-2">Work</h3></a>
+              </li>
+              <li className="nav-item ms-auto">
+                <a href="#footer"><h3 className="navbar-link m-2">Contact</h3></a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      <Routes>
-        <Route path="/about" element={<>
-        </>} />
-        <Route path="/" element={<>
-          <div className="container-fluid">
-          </div>
-        </>} />
-      </Routes>
     </div>
   );
 }
