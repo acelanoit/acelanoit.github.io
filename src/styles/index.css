@@ -8,6 +8,11 @@ body {
   background-color: #F2BE22;
 }
 
+.navbar-link {
+  color: #ffffff;
+  font-weight: bold;
+}
+
 #top-container,
 #projects,
 #meme {
@@ -142,9 +147,16 @@ h3 {
   margin-right: -350%;
 }
 
-.navbar-link {
+.button {
+  background: #11cdd4;
+  background-image: -webkit-linear-gradient(top, #11cdd4, #11999e);
+  background-image: -moz-linear-gradient(top, #11cdd4, #11999e);
+  background-image: -ms-linear-gradient(top, #11cdd4, #11999e);
+  background-image: -o-linear-gradient(top, #11cdd4, #11999e);
+  background-image: linear-gradient(to bottom, #11cdd4, #11999e);
+  font-family: 'Montserrat', sans-serif;
   color: #ffffff;
-  font-weight: bold;
+  text-decoration: none;
 }
 
 .btn:hover {
