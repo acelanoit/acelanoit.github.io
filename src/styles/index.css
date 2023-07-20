@@ -3,7 +3,8 @@ body {
   font-family: 'Merriweather', serif;
 }
 
-.navbar, #footer {
+.navbar,
+#footer {
   background-color: #F2BE22;
 }
 
@@ -25,6 +26,56 @@ body {
   width: 15%;
   position: absolute;
   left: 78%;
+}
+
+.top-sparkles {
+  /* Set the initial opacity to 0.7 */
+  opacity: 0.7;
+  /* Set the animation duration */
+  animation-duration: 1s;
+  /* Set the animation iteration count to infinite to make it continuous */
+  animation-iteration-count: infinite;
+  /* Define the animation name */
+  animation-name: shineTop;
+}
+
+@keyframes shineTop {
+
+  /* Define the keyframes for the animation */
+  0%,
+  100% {
+    /* Start and end with opacity 0.7 to create a blink effect */
+    opacity: 0.7;
+  }
+
+  50% {
+    /* Set opacity to 1 in the middle of the animation */
+    opacity: 1;
+  }
+}
+
+.bottom-sparkles {
+  /* Set the animation duration */
+  animation-duration: 1s;
+  /* Set the animation iteration count to infinite to make it continuous */
+  animation-iteration-count: infinite;
+  /* Define the animation name */
+  animation-name: shineBottom;
+}
+
+@keyframes shineBottom {
+
+  /* Define the keyframes for the animation */
+  0%,
+  100% {
+    /* Start and end with opacity 0 to create a blink effect */
+    opacity: 1;
+  }
+
+  50% {
+    /* Set opacity to 0.7 in the middle of the animation */
+    opacity: 0.7;
+  }
 }
 
 h1 {
@@ -84,7 +135,7 @@ h3 {
 }
 
 .carousel-control-prev-icon {
-margin-left: -350%;
+  margin-left: -350%;
 }
 
 .carousel-control-next-icon {
@@ -123,7 +174,8 @@ margin-left: -350%;
   width: 50%;
 }
 
-.copyright, .attributions {
+.copyright,
+.attributions {
   color: #EAF6F6;
   display: block;
   font-size: small;
