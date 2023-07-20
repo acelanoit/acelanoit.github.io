@@ -8,11 +8,18 @@ export default function Canvas() {
     const ctx = canvas.getContext("2d");
     canvas.height = canvas.width * 0.7495;
 
-    const background = new Image();
-    background.src = "images/canvas-assets/background.png";
-
     const enemy = new Image();
     enemy.src = "images/canvas-assets/bug.png";
+
+    function createBackgroundArray() {
+      const backgrounds = [];
+      for (let i = 0; i < 4; i++) {
+        const background = new Image();
+        background.src = `images/canvas-assets/background_${i}.png`;
+        backgrounds.push(background);
+      }
+      return backgrounds;
+    }
 
     function createImageArray(imageType, imageCount) {
       const images = [];
@@ -24,12 +31,14 @@ export default function Canvas() {
       return images;
     }
 
+    const backgrounds = createBackgroundArray();
+
     const playerIdleImages = createImageArray("IDLE", 10);
     const playerRunImages = createImageArray("RUN", 10);
     const playerAttackImages = createImageArray("ATTACK", 10);
 
-    const images = playerIdleImages.concat(playerRunImages, playerAttackImages);
-    images.push(background, enemy);
+    const images = playerIdleImages.concat(playerRunImages, playerAttackImages, backgrounds);
+    images.push(enemy);
 
     const spriteWidth = 1800;
     const spriteHeight = 1000;
@@ -93,7 +102,7 @@ export default function Canvas() {
       const deltaTime = timeStamp - lastTime;
       lastTime = timeStamp;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+      ctx.drawImage(backgrounds[3], 0, 0, canvas.width, canvas.height);
       playerUpdate(deltaTime);
       playerDraw(ctx);
       enemyUpdate(deltaTime);
