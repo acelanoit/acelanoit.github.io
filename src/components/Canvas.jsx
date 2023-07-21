@@ -74,7 +74,7 @@ export default function Canvas() {
       if (stance === "idle") player = playerIdleImages[playerFrame];
       if (stance === "run") player = playerRunImages[playerFrame];
       if (stance === "attack") player = playerAttackImages[playerFrame];
-      ctx.drawImage(player, 762, 208, 556, 472, playerX, playerY, spriteWidth * playerScale, spriteHeight * playerScale);
+      ctx.drawImage(player, 742, 140, 608, 540, playerX, playerY, spriteWidth * playerScale, spriteHeight * playerScale);
     }
 
     //////////////////// Background ////////////////////
@@ -196,7 +196,7 @@ export default function Canvas() {
         playerStance = "run";
         playerSpeed = 1;
       }
-      if (playerX > enemyX - enemyWidth - enemyWidth * 0.4 && playerStance === "run") {
+      if (playerX > enemyX - enemyWidth - enemyWidth * 0.35 && playerStance === "run") {
         playerFrame = 0;
         playerStance = "attack";
         playerSpeed = 0;
