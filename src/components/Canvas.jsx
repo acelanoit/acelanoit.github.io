@@ -7,20 +7,32 @@ export default function Canvas() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     canvas.height = canvas.width * 0.7495;
+    const fps = 20;
+    const frameInterval = 1000 / fps;
+    let frameTimer = 0;
 
+    //////////////////// Enemy ////////////////////
     const enemy = new Image();
     enemy.src = "images/canvas-assets/bug.png";
+    const enemyScale = 0.28;
+    let enemyFrame = 0;
+    let enemyX = canvas.width * (0.5 + Math.random() * 0.3);
 
-    function createBackgroundArray() {
-      const backgrounds = [];
-      for (let i = 0; i < 4; i++) {
-        const background = new Image();
-        background.src = `images/canvas-assets/background_${i}.png`;
-        backgrounds.push(background);
-      }
-      return backgrounds;
+    function enemyUpdate(deltaTime) {
+
+      // Sprite animation:
+      if (frameTimer > frameInterval) {
+        frameTimer = 0;
+        if (enemyFrame < 5) enemyFrame++;
+        else enemyFrame = 0;
+      } else frameTimer += deltaTime;
     }
 
+    function enemyDraw(ctx) {
+      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, canvas.height - 171 * enemyScale - (canvas.height * 0.25), 229 * enemyScale, 171 * enemyScale);
+    }
+
+    //////////////////// Player ////////////////////
     function createImageArray(imageType, imageCount) {
       const images = [];
       for (let i = 0; i < imageCount; i++) {
@@ -31,36 +43,15 @@ export default function Canvas() {
       return images;
     }
 
-    const backgrounds = createBackgroundArray();
-
     const playerIdleImages = createImageArray("IDLE", 10);
     const playerRunImages = createImageArray("RUN", 10);
     const playerAttackImages = createImageArray("ATTACK", 10);
-
-    const images = playerIdleImages.concat(playerRunImages, playerAttackImages, backgrounds);
-    images.push(enemy);
-
     const spriteWidth = 1800;
     const spriteHeight = 1000;
     const playerScale = 0.05;
-    const enemyScale = 0.28;
     let playerFrame = 0;
-    let enemyFrame = 0;
-    const enemyX = canvas.width * (0.5 + Math.random() * 0.3);
-    const imageCount = playerIdleImages.length;
-    let imagesLoaded = 0;
-
-    const fps = 20;
-    const frameInterval = 1000 / fps;
-    let frameTimer = 0;
-
-    // Wait for all images to load before calling animate function
-    images.forEach(image => {
-      image.onload = () => {
-        imagesLoaded++;
-        if (imagesLoaded === imageCount) animate();
-      };
-    });
+    let playerX = canvas.width * 0.05;
+    let playerY = canvas.height - spriteHeight * playerScale - (canvas.height * 0.25);
 
     function playerUpdate(deltaTime) {
 
@@ -77,23 +68,23 @@ export default function Canvas() {
       if (stance === "idle") player = playerIdleImages[playerFrame];
       if (stance === "run") player = playerRunImages[playerFrame];
       if (stance === "attack") player = playerAttackImages[playerFrame];
-      ctx.drawImage(player, 762, 208, 556, 472, canvas.width * 0.05, canvas.height - spriteHeight * playerScale - (canvas.height * 0.25), spriteWidth * playerScale, spriteHeight * playerScale);
+      ctx.drawImage(player, 762, 208, 556, 472, playerX, playerY, spriteWidth * playerScale, spriteHeight * playerScale);
     }
 
-    function enemyUpdate(deltaTime) {
-
-      // Sprite animation:
-      if (frameTimer > frameInterval) {
-        frameTimer = 0;
-        if (enemyFrame < 5) enemyFrame++;
-        else enemyFrame = 0;
-      } else frameTimer += deltaTime;
+    //////////////////// Background ////////////////////
+    function createBackgroundArray() {
+      const backgrounds = [];
+      for (let i = 0; i < 4; i++) {
+        const background = new Image();
+        background.src = `images/canvas-assets/background_${i}.png`;
+        backgrounds.push(background);
+      }
+      return backgrounds;
     }
 
-    function enemyDraw(ctx) {
-      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, canvas.height - 171 * enemyScale - (canvas.height * 0.25), 229 * enemyScale, 171 * enemyScale);
-    }
+    const backgrounds = createBackgroundArray();
 
+    //////////////////// Text ////////////////////
     const texts = ["It's debug time!", "All bugs shall fall!", "Bug slayer, at your service!", "Bug squasher extraordinaire!", "Bug exterminator on the loose!", "We battle bugs and conquer!", "No bug is safe!", "Annihilate all bugs!", "Let the bug-bashing dance begin!", "Calling all bug busters!"];
     const randomText = texts[(Math.floor(Math.random() * texts.length))];
     let textDisplayed = false;
@@ -107,6 +98,20 @@ export default function Canvas() {
         textDisplayed = true;;
       }, (2000 + deltatime));
     }
+    ////////////////////////////////////////////////////
+
+    const images = playerIdleImages.concat(playerRunImages, playerAttackImages, backgrounds);
+    images.push(enemy);
+    const imageCount = playerIdleImages.length;
+    let imagesLoaded = 0;
+
+    // Wait for all images to load before calling animate function
+    images.forEach(image => {
+      image.onload = () => {
+        imagesLoaded++;
+        if (imagesLoaded === imageCount) animate();
+      };
+    });
 
     let lastTime = 0;
 
