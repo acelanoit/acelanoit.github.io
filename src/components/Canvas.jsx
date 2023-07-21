@@ -89,10 +89,11 @@ export default function Canvas() {
     }
 
     const backgrounds = createBackgroundArray();
+    let randomBackground = backgrounds[(Math.floor(Math.random() * backgrounds.length))];
 
     //////////////////// Text ////////////////////
     const texts = ["It's debug time!", "All bugs shall fall!", "Bug slayer, at your service!", "Bug squasher extraordinaire!", "Bug exterminator on the loose!", "We battle bugs and conquer!", "No bug is safe!", "Annihilate all bugs!", "Let the bug-bashing dance begin!", "Calling all bug busters!"];
-    const randomText = texts[(Math.floor(Math.random() * texts.length))];
+    let randomText = texts[(Math.floor(Math.random() * texts.length))];
     let textDisplayed = false;
 
     function drawText(text, animationTimer) {
@@ -147,6 +148,20 @@ export default function Canvas() {
     let lastTime = 0;
     let animationTimer = 0;
 
+    function reset() {
+      enemyFrame = 0;
+      enemyX = canvas.width * (0.5 + Math.random() * 0.3);
+      enemyDefeated = false;
+      playerFrame = 0;
+      playerX = canvas.width * 0.05;
+      randomBackground = backgrounds[(Math.floor(Math.random() * backgrounds.length))];
+      randomText = texts[(Math.floor(Math.random() * texts.length))];
+      textDisplayed = false;
+      animationTimer = 0;
+      explosionDisplayed = false;
+      explosionFrame = 0;
+    }
+
     function animate(timeStamp) {
       if (!lastTime) {
         lastTime = timeStamp; // set lastTime to current timestamp
@@ -157,7 +172,7 @@ export default function Canvas() {
       lastTime = timeStamp;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(backgrounds[0], 0, 0, canvas.width, canvas.height);
+      ctx.drawImage(randomBackground, 0, 0, canvas.width, canvas.height);
 
       // Draw the enemy first
       if (!enemyDefeated) {
@@ -191,8 +206,8 @@ export default function Canvas() {
         enemyDefeated = true;
         playerFrame = 0;
         playerStance = "idle";
+        setTimeout(reset, 2000 + deltaTime);
       }
-
       requestAnimationFrame(animate);
     }
   }, []);
