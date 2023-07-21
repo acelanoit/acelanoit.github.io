@@ -18,6 +18,7 @@ export default function Canvas() {
     let enemyFrame = 0;
     const enemyWidth = 229 * enemyScale;
     let enemyX = canvas.width * (0.5 + Math.random() * 0.3);
+    let enemyY = canvas.height - 171 * enemyScale - (canvas.height * 0.25);
 
     function enemyUpdate(deltaTime) {
 
@@ -30,7 +31,7 @@ export default function Canvas() {
     }
 
     function enemyDraw(ctx) {
-      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, canvas.height - 171 * enemyScale - (canvas.height * 0.25), enemyWidth, 171 * enemyScale);
+      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, enemyY, enemyWidth, 171 * enemyScale);
     }
 
     //////////////////// Player ////////////////////
@@ -100,6 +101,33 @@ export default function Canvas() {
       ctx.fillText(text, canvas.width * 0.5, canvas.height * 0.47);
       if (animationTimer > 2000) textDisplayed = true;
     }
+
+    //////////////////// Explosion ////////////////////
+    const explosion = new Image();
+    explosion.src = "images/canvas-assets/boom.png";
+    const explosionScale = 0.3;
+    let explosionFrame = 0;
+    let explosionTimer = 0;
+    let explosionDisplayed = false;
+
+    function explosionUpdate() {
+      explosionTimer++;
+
+      if (explosionTimer % 10 === 0) {
+
+        // Run this code every 10 frames to slow down the animation:
+        explosionFrame++;
+        if (explosionFrame > 5) explosionFrame = 0;
+      }
+    }
+
+    function explosionDraw() {
+      // Calculate the position of the explosion on top of the enemy
+      const explosionX = enemyX + enemyWidth * 0.5 - 100 * explosionScale; // Adjust the X coordinate for centering the explosion
+      const explosionY = enemyY * 1.2 - 89 * explosionScale; // Adjust the Y coordinate for proper alignment
+
+      ctx.drawImage(explosion, 200 * explosionFrame, 0, 200, 179, explosionX, explosionY, 200 * explosionScale, 179 * explosionScale);
+    }
     ////////////////////////////////////////////////////
 
     const images = playerIdleImages.concat(playerRunImages, playerAttackImages, backgrounds);
@@ -129,10 +157,20 @@ export default function Canvas() {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(backgrounds[0], 0, 0, canvas.width, canvas.height);
-      playerUpdate(deltaTime);
-      playerDraw(ctx, playerStance);
+
+      // Draw the enemy first
       enemyUpdate(deltaTime);
       enemyDraw(ctx);
+
+      // Draw the explosion if it's displayed
+      if (explosionDisplayed) {
+        explosionUpdate();
+        explosionDraw();
+      }
+
+      playerUpdate(deltaTime);
+      playerDraw(ctx, playerStance);
+
       animationTimer += deltaTime;
       if (!textDisplayed) drawText(randomText, animationTimer);
       if (animationTimer > 3000 && playerStance === "idle") {
@@ -140,10 +178,15 @@ export default function Canvas() {
         playerStance = "run";
         playerSpeed = 1;
       }
-      if (playerX > (enemyX - enemyWidth - (enemyWidth * 0.4))) {
+      if (playerX > enemyX - enemyWidth - enemyWidth * 0.4) {
         if (playerStance === "run") playerFrame = 0;
         playerStance = "attack";
         playerSpeed = 0;
+        if (playerFrame > 8 && playerStance === "attack" && !explosionDisplayed) {
+          explosionDisplayed = true;
+          playerFrame = 0;
+          playerStance = "idle";
+        }
       }
       requestAnimationFrame(animate);
     }
