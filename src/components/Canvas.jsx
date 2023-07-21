@@ -92,7 +92,7 @@ export default function Canvas() {
     let randomBackground = backgrounds[(Math.floor(Math.random() * backgrounds.length))];
 
     //////////////////// Text ////////////////////
-    const texts = ["It's debug time!", "All bugs shall fall!", "Bug slayer, at your service!", "Bug squasher extraordinaire!", "Bug exterminator on the loose!", "We battle bugs and conquer!", "No bug is safe!", "Annihilate all bugs!", "Let the bug-bashing dance begin!", "Calling all bug busters!"];
+    const texts = ["It's debug time!", "All bugs shall fall!", "Bug slayer, at your service!", "Bug squasher extraordinaire!", "Bug exterminator on the loose!", "We battle bugs and conquer!", "No bug is safe!", "Annihilate all bugs!", "Let the bug-bashing dance begin!", "Calling all bug busters!", "Prepare to be debugged!", "Bug-free zone ahead!", "Bugs, beware!", "Bug problems? Solved!", "No bug can escape me!", "The bug apocalypse is here!"];
     let randomText = texts[(Math.floor(Math.random() * texts.length))];
     let textDisplayed = false;
 
