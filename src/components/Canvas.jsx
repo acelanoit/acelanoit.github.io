@@ -16,6 +16,7 @@ export default function Canvas() {
     enemy.src = "images/canvas-assets/bug.png";
     const enemyScale = 0.28;
     let enemyFrame = 0;
+    const enemyWidth = 229 * enemyScale;
     let enemyX = canvas.width * (0.5 + Math.random() * 0.3);
 
     function enemyUpdate(deltaTime) {
@@ -29,7 +30,7 @@ export default function Canvas() {
     }
 
     function enemyDraw(ctx) {
-      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, canvas.height - 171 * enemyScale - (canvas.height * 0.25), 229 * enemyScale, 171 * enemyScale);
+      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, canvas.height - 171 * enemyScale - (canvas.height * 0.25), enemyWidth, 171 * enemyScale);
     }
 
     //////////////////// Player ////////////////////
@@ -50,6 +51,8 @@ export default function Canvas() {
     const spriteHeight = 1000;
     const playerScale = 0.05;
     let playerFrame = 0;
+    let playerStance = "idle";
+    let playerSpeed = 0;
     let playerX = canvas.width * 0.05;
     let playerY = canvas.height - spriteHeight * playerScale - (canvas.height * 0.25);
 
@@ -61,6 +64,7 @@ export default function Canvas() {
         if (playerFrame < 9) playerFrame++;
         else playerFrame = 0;
       } else frameTimer += deltaTime;
+      playerX += playerSpeed;
     }
 
     function playerDraw(ctx, stance) {
@@ -89,14 +93,12 @@ export default function Canvas() {
     const randomText = texts[(Math.floor(Math.random() * texts.length))];
     let textDisplayed = false;
 
-    function drawText(text, deltatime) {
+    function drawText(text, animationTimer) {
       ctx.font = "1rem Ghotic";
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
       ctx.fillText(text, canvas.width * 0.5, canvas.height * 0.47);
-      setTimeout(() => {
-        textDisplayed = true;;
-      }, (2000 + deltatime));
+      if (animationTimer > 2000) textDisplayed = true;
     }
     ////////////////////////////////////////////////////
 
@@ -114,6 +116,7 @@ export default function Canvas() {
     });
 
     let lastTime = 0;
+    let animationTimer = 0;
 
     function animate(timeStamp) {
       if (!lastTime) {
@@ -123,13 +126,25 @@ export default function Canvas() {
       }
       const deltaTime = timeStamp - lastTime;
       lastTime = timeStamp;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(backgrounds[0], 0, 0, canvas.width, canvas.height);
       playerUpdate(deltaTime);
-      playerDraw(ctx, "idle");
+      playerDraw(ctx, playerStance);
       enemyUpdate(deltaTime);
       enemyDraw(ctx);
-      if (!textDisplayed) drawText(randomText, deltaTime);
+      animationTimer += deltaTime;
+      if (!textDisplayed) drawText(randomText, animationTimer);
+      if (animationTimer > 3000 && playerStance === "idle") {
+        playerFrame = 0;
+        playerStance = "run";
+        playerSpeed = 1;
+      }
+      if (playerX > (enemyX - enemyWidth - (enemyWidth * 0.4))) {
+        if (playerStance === "run") playerFrame = 0;
+        playerStance = "attack";
+        playerSpeed = 0;
+      }
       requestAnimationFrame(animate);
     }
   }, []);
