@@ -19,6 +19,7 @@ export default function Canvas() {
     const enemyWidth = 229 * enemyScale;
     let enemyX = canvas.width * (0.5 + Math.random() * 0.3);
     let enemyY = canvas.height - 171 * enemyScale - (canvas.height * 0.25);
+    let enemyDefeated = false;
 
     function enemyUpdate(deltaTime) {
 
@@ -117,7 +118,7 @@ export default function Canvas() {
 
         // Run this code every 10 frames to slow down the animation:
         explosionFrame++;
-        if (explosionFrame > 5) explosionFrame = 0;
+        if (explosionFrame > 5) explosionDisplayed = false;
       }
     }
 
@@ -159,8 +160,10 @@ export default function Canvas() {
       ctx.drawImage(backgrounds[0], 0, 0, canvas.width, canvas.height);
 
       // Draw the enemy first
-      enemyUpdate(deltaTime);
-      enemyDraw(ctx);
+      if (!enemyDefeated) {
+        enemyUpdate(deltaTime);
+        enemyDraw(ctx);
+      }
 
       // Draw the explosion if it's displayed
       if (explosionDisplayed) {
@@ -173,21 +176,23 @@ export default function Canvas() {
 
       animationTimer += deltaTime;
       if (!textDisplayed) drawText(randomText, animationTimer);
-      if (animationTimer > 3000 && playerStance === "idle") {
+      if (animationTimer > 3000 && playerStance === "idle" && !enemyDefeated) {
         playerFrame = 0;
         playerStance = "run";
         playerSpeed = 1;
       }
-      if (playerX > enemyX - enemyWidth - enemyWidth * 0.4) {
-        if (playerStance === "run") playerFrame = 0;
+      if (playerX > enemyX - enemyWidth - enemyWidth * 0.4 && playerStance === "run") {
+        playerFrame = 0;
         playerStance = "attack";
         playerSpeed = 0;
-        if (playerFrame > 8 && playerStance === "attack" && !explosionDisplayed) {
-          explosionDisplayed = true;
-          playerFrame = 0;
-          playerStance = "idle";
-        }
       }
+      if (playerFrame > 8 && playerStance === "attack" && !explosionDisplayed) {
+        explosionDisplayed = true;
+        enemyDefeated = true;
+        playerFrame = 0;
+        playerStance = "idle";
+      }
+
       requestAnimationFrame(animate);
     }
   }, []);
