@@ -74,7 +74,7 @@ export default function Canvas() {
       if (stance === "idle") player = playerIdleImages[playerFrame];
       if (stance === "run") player = playerRunImages[playerFrame];
       if (stance === "attack") player = playerAttackImages[playerFrame];
-      ctx.drawImage(player, 742, 140, 608, 540, playerX, playerY, spriteWidth * playerScale, spriteHeight * playerScale);
+      ctx.drawImage(player, 742, 100, 608, 580, playerX, playerY, spriteWidth * playerScale, spriteHeight * playerScale);
     }
 
     //////////////////// Background ////////////////////
