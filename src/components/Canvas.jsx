@@ -107,7 +107,7 @@ export default function Canvas() {
     //////////////////// Explosion ////////////////////
     const explosion = new Image();
     explosion.src = "images/canvas-assets/boom.png";
-    const explosionScale = 0.3;
+    const explosionScale = 0.4;
     let explosionFrame = 0;
     let explosionTimer = 0;
     let explosionDisplayed = false;
@@ -194,7 +194,7 @@ export default function Canvas() {
       if (animationTimer > 3000 && playerStance === "idle" && !enemyDefeated) {
         playerFrame = 0;
         playerStance = "run";
-        playerSpeed = 1;
+        playerSpeed = 2;
       }
       if (playerX > enemyX - enemyWidth - enemyWidth * 0.35 && playerStance === "run") {
         playerFrame = 0;
