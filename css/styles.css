@@ -1,0 +1,233 @@
+body {
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  visibility: hidden;
+}
+
+.navbar,
+#footer {
+  background-color: #F2BE22;
+}
+
+.navbar-link {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.navbar-link:hover {
+  color: #EF6262;
+}
+
+#top-container,
+#projects,
+#meme {
+  background-color: #EAF6F6;
+  height: fit-content;
+  position: relative;
+  width: 100%;
+}
+
+.container-sub {
+  align-items: center;
+  justify-content: center;
+}
+
+.top-sparkles {
+  width: 15%;
+  position: absolute;
+  left: 78%;
+}
+
+.top-sparkles {
+  /* Set the initial opacity to 0.7 */
+  opacity: 0.7;
+  /* Set the animation duration */
+  animation-duration: 1s;
+  /* Set the animation iteration count to infinite to make it continuous */
+  animation-iteration-count: infinite;
+  /* Define the animation name */
+  animation-name: shineTop;
+}
+
+@keyframes shineTop {
+
+  /* Define the keyframes for the animation */
+  0%,
+  100% {
+    /* Start and end with opacity 0.7 to create a blink effect */
+    opacity: 0.7;
+  }
+
+  50% {
+    /* Set opacity to 1 in the middle of the animation */
+    opacity: 1;
+  }
+}
+
+.bottom-sparkles {
+  /* Set the animation duration */
+  animation-duration: 1s;
+  /* Set the animation iteration count to infinite to make it continuous */
+  animation-iteration-count: infinite;
+  /* Define the animation name */
+  animation-name: shineBottom;
+}
+
+@keyframes shineBottom {
+
+  /* Define the keyframes for the animation */
+  0%,
+  100% {
+    /* Start and end with opacity 0 to create a blink effect */
+    opacity: 1;
+  }
+
+  50% {
+    /* Set opacity to 0.7 in the middle of the animation */
+    opacity: 0.7;
+  }
+}
+
+h1 {
+  font-family: 'Sacramento', cursive;
+  font-size: 10vw;
+  font-weight: bold;
+  color: #66BFBF;
+  line-height: 0.8;
+}
+
+h2,
+.Typewriter,
+.Typewriter__wrapper {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 5vw;
+  color: #66BFBF;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.earth {
+  width: 25%;
+}
+
+.bottom-sparkles {
+  width: 10%;
+  position: absolute;
+  left: 15%;
+  top: 30%;
+}
+
+.about-box {
+  display: flex;
+}
+
+.profile-pic {
+  width: 25vw;
+}
+
+p {
+  color: #40514E;
+  line-height: 2;
+}
+
+h3 {
+  color: #11999E;
+  font-size: 3vw;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.carousel-control-prev-icon {
+  margin-left: -350%;
+}
+
+.carousel-control-next-icon {
+  margin-right: -350%;
+}
+
+.button {
+  background: #11cdd4;
+  background-image: -webkit-linear-gradient(top, #11cdd4, #11999e);
+  background-image: -moz-linear-gradient(top, #11cdd4, #11999e);
+  background-image: -ms-linear-gradient(top, #11cdd4, #11999e);
+  background-image: -o-linear-gradient(top, #11cdd4, #11999e);
+  background-image: linear-gradient(to bottom, #11cdd4, #11999e);
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #30e3cb;
+  background-image: -webkit-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: -moz-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: -ms-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: -o-linear-gradient(top, #30e3cb, #2bc4ad);
+  background-image: linear-gradient(to bottom, #30e3cb, #2bc4ad);
+  text-decoration: none;
+}
+
+.carousel-indicators {
+  margin-bottom: -15vh;
+}
+
+.devicon {
+  width: 5vw;
+}
+
+.gif {
+  width: 50%;
+}
+
+#canvas1 {
+  border: 1px solid #66BFBF;
+  width: 50%;
+}
+
+i {
+  color: #40514E;
+}
+
+i:hover {
+  color: #11999E;
+}
+
+.copyright,
+.attributions {
+  color: #EAF6F6;
+  display: block;
+  font-size: small;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #11999E;
+}
+
+@media (max-width: 767px) {
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    display: none;
+  }
+
+  .navbar-link {
+    font-size: 4vw;
+  }
+
+  h1 {
+    font-size: 11vw;
+  }
+
+  h2 {
+    font-size: 6vw;
+  }
+
+  h3 {
+    font-size: 5vw;
+  }
+}
