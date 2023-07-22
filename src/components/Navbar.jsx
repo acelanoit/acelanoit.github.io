@@ -11,16 +11,16 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
               <li className="nav-item ms-auto">
-                <a href="#about"><h3 className="navbar-link m-2">About</h3></a>
+                <a href="#about" className="navbar-link m-2">About</a>
               </li>
               <li className="nav-item ms-auto">
-                <a href="#skills"><h3 className="navbar-link m-2">Skills</h3></a>
+                <a href="#skills" className="navbar-link m-2">Skills</a>
               </li>
               <li className="nav-item ms-auto">
-                <a href="#projects"><h3 className="navbar-link m-2">Work</h3></a>
+                <a href="#projects" className="navbar-link m-2">Work</a>
               </li>
               <li className="nav-item ms-auto">
-                <a href="#footer"><h3 className="navbar-link m-2">Contact</h3></a>
+                <a href="#footer" className="navbar-link m-2">Contact</a>
               </li>
             </ul>
           </div>

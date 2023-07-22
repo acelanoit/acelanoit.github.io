@@ -11,6 +11,8 @@ body {
 
 .navbar-link {
   color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2vw;
   font-weight: bold;
 }
 
