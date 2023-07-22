@@ -1,6 +1,7 @@
 body {
-  text-align: center;
   font-family: 'Merriweather', serif;
+  text-align: center;
+  visibility: hidden;
 }
 
 .navbar,
@@ -11,6 +12,10 @@ body {
 .navbar-link {
   color: #ffffff;
   font-weight: bold;
+}
+
+.navbar-link:hover {
+  color: #EF6262;
 }
 
 #top-container,
@@ -91,16 +96,14 @@ h1 {
   line-height: 0.8;
 }
 
-h2, .Typewriter, .Typewriter__wrapper {
+h2,
+.Typewriter,
+.Typewriter__wrapper {
   font-family: 'Montserrat', sans-serif;
   font-size: 5vw;
   color: #66BFBF;
   font-weight: bold;
   text-decoration: none;
-}
-
-span {
-  text-decoration: underline;
 }
 
 .earth {
@@ -185,6 +188,14 @@ h3 {
 #canvas1 {
   border: 1px solid #66BFBF;
   width: 50%;
+}
+
+i {
+  color: #40514E;
+}
+
+i:hover {
+  color: #11999E;
 }
 
 .copyright,

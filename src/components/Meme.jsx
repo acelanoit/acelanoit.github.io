@@ -22,7 +22,7 @@ export default function Meme() {
           <div className="col-12 col-md-6">
             <h3>How I really am</h3>
             <Canvas />
-            <p>This is not a GIF, but JavaScript magic! Notice how the background, the bug's position, and my war cry are chosen randomly?</p>
+            <p>This is not a GIF, but <span style={{ color: "#66BFBF", fontWeight: "bold" }}>JavaScript magic</span> 🧙‍♂️! Notice how the background, the bug's position, and my war cry are chosen randomly?</p>
           </div>
         </div>
       </div>
