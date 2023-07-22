@@ -15,7 +15,7 @@ export default function Meme() {
             <h3>How my family sees me</h3>
             <img src="images/brain.jpg" alt="big-brain" className="gif" />
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-6 mb-5">
             <h3>How I see myself</h3>
             <img src="images/homer.gif" alt="homer-any-key" className="gif" />
           </div>
