@@ -1,4 +1,5 @@
 import React from "react";
+import Typewriter from "typewriter-effect";
 
 export default function About() {
   return (
@@ -12,7 +13,13 @@ export default function About() {
           <div className="col-12 col-md-6 container-sub about-box">
             <div>
               <div className="mb-3 d-block d-md-none"></div>
-              <h2>Hello, World!</h2>
+              <Typewriter
+                options={{
+                  strings: ["Hello, world!"],
+                  autoStart: true,
+                  loop: true
+                }}
+              />
               <p className="mx-2 mb-0">As an aspiring coding professional, I have pursued my passion for programming through various avenues, including completing an online coding course and recently graduating from the prestigious Le Wagon coding bootcamp. While I appreciate the aesthetics and user experience considerations of front-end development, my true passion lies in what remains invisible to the user and in building the logic of applications.</p>
             </div>
           </div>

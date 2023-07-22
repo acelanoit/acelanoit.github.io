@@ -91,11 +91,12 @@ h1 {
   line-height: 0.8;
 }
 
-h2 {
+h2, .Typewriter, .Typewriter__wrapper {
   font-family: 'Montserrat', sans-serif;
   font-size: 5vw;
   color: #66BFBF;
   font-weight: bold;
+  text-decoration: none;
 }
 
 span {
