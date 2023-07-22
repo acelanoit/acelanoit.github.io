@@ -15,7 +15,7 @@ export default function About() {
               <div className="mb-3 d-block d-md-none"></div>
               <Typewriter
                 options={{
-                  strings: ["Hello, world!"],
+                  strings: ["Hello, World!"],
                   autoStart: true,
                   loop: true
                 }}
