@@ -11,7 +11,7 @@ export default function ControlledCarousel(props) {
 
   return (
     <div className="w-50 mx-auto my-2">
-      <Carousel activeIndex={index} onSelect={handleSelect} className="carousel-dark" interval={null}>
+      <Carousel activeIndex={index} onSelect={handleSelect} className="carousel-dark" interval={3000}>
         <Carousel.Item>
           <img
             className="d-block w-100"
