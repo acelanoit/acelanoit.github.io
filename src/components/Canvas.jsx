@@ -15,10 +15,11 @@ export default function Canvas() {
     const enemy = new Image();
     enemy.src = "images/canvas-assets/bug.png";
     const enemyScale = 0.28;
-    let enemyFrame = 0;
     const enemyWidth = 229 * enemyScale;
+    const enemyHeight = 171 * enemyScale;
     let enemyX = canvas.width * (0.5 + Math.random() * 0.3);
     let enemyY = canvas.height - 171 * enemyScale - (canvas.height * 0.25);
+    let enemyFrame = 0;
     let enemyDefeated = false;
 
     function enemyUpdate(deltaTime) {
@@ -32,7 +33,7 @@ export default function Canvas() {
     }
 
     function enemyDraw(ctx) {
-      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, enemyY, enemyWidth, 171 * enemyScale);
+      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, enemyY, enemyWidth, enemyHeight);
     }
 
     //////////////////// Player ////////////////////
@@ -52,11 +53,13 @@ export default function Canvas() {
     const spriteWidth = 1800;
     const spriteHeight = 1000;
     const playerScale = 0.05;
+    const playerWidth = spriteWidth * playerScale;
+    const playerHeight = spriteHeight * playerScale;
+    let playerX = canvas.width * 0.05;
+    let playerY = canvas.height - spriteHeight * playerScale - (canvas.height * 0.25);
     let playerFrame = 0;
     let playerStance = "idle";
     let playerSpeed = 0;
-    let playerX = canvas.width * 0.05;
-    let playerY = canvas.height - spriteHeight * playerScale - (canvas.height * 0.25);
 
     function playerUpdate(deltaTime) {
 
@@ -74,7 +77,7 @@ export default function Canvas() {
       if (stance === "idle") player = playerIdleImages[playerFrame];
       if (stance === "run") player = playerRunImages[playerFrame];
       if (stance === "attack") player = playerAttackImages[playerFrame];
-      ctx.drawImage(player, 742, 100, 608, 580, playerX, playerY, spriteWidth * playerScale, spriteHeight * playerScale);
+      ctx.drawImage(player, 742, 100, 608, 580, playerX, playerY, playerWidth, playerHeight);
     }
 
     //////////////////// Background ////////////////////
@@ -108,6 +111,8 @@ export default function Canvas() {
     const explosion = new Image();
     explosion.src = "images/canvas-assets/boom.png";
     const explosionScale = 0.4;
+    const explosionWidth = 200 * explosionScale;
+    const explosionHeight = 179 * explosionScale;
     let explosionFrame = 0;
     let explosionTimer = 0;
     let explosionDisplayed = false;
@@ -128,7 +133,7 @@ export default function Canvas() {
       const explosionX = enemyX + enemyWidth * 0.5 - 100 * explosionScale; // Adjust the X coordinate for centering the explosion
       const explosionY = enemyY * 1.2 - 89 * explosionScale; // Adjust the Y coordinate for proper alignment
 
-      ctx.drawImage(explosion, 200 * explosionFrame, 0, 200, 179, explosionX, explosionY, 200 * explosionScale, 179 * explosionScale);
+      ctx.drawImage(explosion, 200 * explosionFrame, 0, 200, 179, explosionX, explosionY, explosionWidth, explosionHeight);
     }
     ////////////////////////////////////////////////////
 
