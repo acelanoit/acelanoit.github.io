@@ -1,7 +1,6 @@
 import React from "react";
 
 const isMobile = window.outerWidth < 394;
-console.log(isMobile);
 
 export default function Skills() {
   return (
