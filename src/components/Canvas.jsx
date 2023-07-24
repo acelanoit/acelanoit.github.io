@@ -23,7 +23,6 @@ export default function Canvas() {
     let enemyDefeated = false;
 
     function enemyUpdate(deltaTime) {
-
       // Sprite animation:
       if (frameTimer > frameInterval) {
         frameTimer = 0;
@@ -33,7 +32,17 @@ export default function Canvas() {
     }
 
     function enemyDraw(ctx) {
-      ctx.drawImage(enemy, enemyFrame * 229, 0, 229, 171, enemyX, enemyY, enemyWidth, enemyHeight);
+      ctx.drawImage(
+        enemy,
+        enemyFrame * 229,
+        0,
+        229,
+        171,
+        enemyX,
+        enemyY,
+        enemyWidth,
+        enemyHeight
+      );
     }
 
     //////////////////// Player ////////////////////
@@ -56,13 +65,12 @@ export default function Canvas() {
     const playerWidth = spriteWidth * playerScale;
     const playerHeight = spriteHeight * playerScale;
     let playerX = canvas.width * 0.05;
-    let playerY = canvas.height - spriteHeight * playerScale - (canvas.height * 0.25);
+    let playerY = canvas.height - spriteHeight * playerScale - canvas.height * 0.25;
     let playerFrame = 0;
     let playerStance = "idle";
     let playerSpeed = 0;
 
     function playerUpdate(deltaTime) {
-
       // Sprite animation:
       if (frameTimer > frameInterval) {
         frameTimer = 0;
@@ -92,15 +100,32 @@ export default function Canvas() {
     }
 
     const backgrounds = createBackgroundArray();
-    let randomBackground = backgrounds[(Math.floor(Math.random() * backgrounds.length))];
+    let randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
 
     //////////////////// Text ////////////////////
-    const texts = ["It's debug time!", "All bugs shall fall!", "Bug slayer, at your service!", "Bug squasher extraordinaire!", "Bug exterminator on the loose!", "We battle bugs and conquer!", "No bug is safe!", "Annihilate all bugs!", "Let the bug-bashing dance begin!", "Calling all bug busters!", "Prepare to be debugged!", "Bug-free zone ahead!", "Bugs, beware!", "Bug problems? Solved!", "No bug can escape me!", "The bug apocalypse is here!"];
-    let randomText = texts[(Math.floor(Math.random() * texts.length))];
+    const texts = [
+      "It's debug time!",
+      "All bugs shall fall!",
+      "Bug slayer, at your service!",
+      "Bug squasher extraordinaire!",
+      "Bug exterminator on the loose!",
+      "We battle bugs and conquer!",
+      "No bug is safe!",
+      "Annihilate all bugs!",
+      "Let the bug-bashing dance begin!",
+      "Calling all bug busters!",
+      "Prepare to be debugged!",
+      "Bug-free zone ahead!",
+      "Bugs, beware!",
+      "Bug problems? Solved!",
+      "No bug can escape me!",
+      "The bug apocalypse is here!",
+    ];
+    let randomText = texts[Math.floor(Math.random() * texts.length)];
     let textDisplayed = false;
 
     function drawText(text, animationTimer) {
-      ctx.font = "1rem Ghotic";
+      ctx.font = "1rem Gothic";
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
       ctx.fillText(text, canvas.width * 0.5, canvas.height * 0.47);
@@ -121,7 +146,6 @@ export default function Canvas() {
       explosionTimer++;
 
       if (explosionTimer % 10 === 0) {
-
         // Run this code every 10 frames to slow down the animation:
         explosionFrame++;
         if (explosionFrame > 5) explosionDisplayed = false;
@@ -133,7 +157,17 @@ export default function Canvas() {
       const explosionX = enemyX + enemyWidth * 0.5 - 100 * explosionScale; // Adjust the X coordinate for centering the explosion
       const explosionY = enemyY * 1.2 - 89 * explosionScale; // Adjust the Y coordinate for proper alignment
 
-      ctx.drawImage(explosion, 200 * explosionFrame, 0, 200, 179, explosionX, explosionY, explosionWidth, explosionHeight);
+      ctx.drawImage(
+        explosion,
+        200 * explosionFrame,
+        0,
+        200,
+        179,
+        explosionX,
+        explosionY,
+        explosionWidth,
+        explosionHeight
+      );
     }
     ////////////////////////////////////////////////////
 
@@ -143,7 +177,7 @@ export default function Canvas() {
     let imagesLoaded = 0;
 
     // Wait for all images to load before calling animate function
-    images.forEach(image => {
+    images.forEach((image) => {
       image.onload = () => {
         imagesLoaded++;
         if (imagesLoaded === imageCount) animate();
@@ -159,8 +193,8 @@ export default function Canvas() {
       enemyDefeated = false;
       playerFrame = 0;
       playerX = canvas.width * 0.05;
-      randomBackground = backgrounds[(Math.floor(Math.random() * backgrounds.length))];
-      randomText = texts[(Math.floor(Math.random() * texts.length))];
+      randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+      randomText = texts[Math.floor(Math.random() * texts.length)];
       textDisplayed = false;
       animationTimer = 0;
       explosionDisplayed = false;
