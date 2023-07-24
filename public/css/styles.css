@@ -185,6 +185,11 @@ h3 {
   width: 50%;
 }
 
+#footer h3 {
+  color: #ffffff;
+  font-weight: bold;
+}
+
 i {
   color: #40514E;
 }
@@ -223,7 +228,8 @@ a:hover {
     font-size: 11vw;
   }
 
-  h2 {
+  h2,
+  #footer h3 {
     font-size: 6vw;
   }
 

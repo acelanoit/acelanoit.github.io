@@ -4,6 +4,7 @@ export default function Footer() {
   return (
     <div id="footer">
       <div className="container container-sub p-2 pt-3 pb-3">
+        <h3 className="mb-3">Get in touch:</h3>
         <a href="mailto:antonio_celano@hotmail.com"><i className="fa-regular fa-envelope fa-3x"></i></a>
         <a href="https://www.linkedin.com/in/antonio-celano-web-developer/" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin fa-3x mx-5"></i></a>
         <a href="https://github.com/acelanoit" target="_blank" rel="noreferrer"><i className="fa-brands fa-github fa-3x"></i></a>
