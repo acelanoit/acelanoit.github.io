@@ -5,7 +5,7 @@ export default function Canvas() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: false });
     canvas.height = canvas.width * 0.7495;
     const fps = 20;
     const frameInterval = 1000 / fps;
