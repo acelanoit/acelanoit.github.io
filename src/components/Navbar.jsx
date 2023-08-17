@@ -22,6 +22,9 @@ function Navbar() {
               <li className="nav-item ms-auto">
                 <a href="#footer" className="navbar-link m-2">Contact</a>
               </li>
+              <li className="nav-item ms-auto">
+                <a href="Antonio Celano - Resume.pdf" className="navbar-link m-2" download>Resume</a>
+              </li>
             </ul>
           </div>
         </div>
