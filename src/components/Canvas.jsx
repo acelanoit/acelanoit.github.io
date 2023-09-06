@@ -5,7 +5,7 @@ export default function Canvas() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d", { alpha: false });
+    const ctx = canvas.getContext("2d");
     canvas.height = canvas.width * 0.7495;
     const fps = 20;
     const frameInterval = 1000 / fps;
@@ -101,6 +101,8 @@ export default function Canvas() {
 
     const backgrounds = createBackgroundArray();
     let randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+    console.log(canvas.style);
+    canvas.style.backgroundImage = `url(${randomBackground.src})`;
 
     //////////////////// Text ////////////////////
     const texts = [
@@ -193,12 +195,13 @@ export default function Canvas() {
       enemyDefeated = false;
       playerFrame = 0;
       playerX = canvas.width * 0.05;
-      randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
       randomText = texts[Math.floor(Math.random() * texts.length)];
       textDisplayed = false;
       animationTimer = 0;
       explosionDisplayed = false;
       explosionFrame = 0;
+      randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+      canvas.style.backgroundImage = `url(${randomBackground.src})`;
     }
 
     function animate(timeStamp) {
@@ -211,7 +214,7 @@ export default function Canvas() {
       lastTime = timeStamp;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(randomBackground, 0, 0, canvas.width, canvas.height);
+      // ctx.drawImage(randomBackground, 0, 0, canvas.width, canvas.height);
 
       // Draw the enemy first
       if (!enemyDefeated) {
