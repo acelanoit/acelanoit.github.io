@@ -20,7 +20,7 @@ export default function About() {
                   loop: true
                 }}
               />
-              <p className="mx-2 mb-0">As an aspiring coding professional, I have pursued my passion for programming through various avenues, including completing an online coding course, recently graduating from the prestigious Le Wagon coding bootcamp, and a great deal of self-learning. While I appreciate the aesthetics and user experience considerations of front-end development, my true passion lies in what remains invisible to the user and in building the logic of applications.</p>
+              <p className="mx-2 mb-0">As an aspiring coding professional, I have pursued my passion for programming through various avenues, including completing an online coding course, recently graduating from the prestigious Le Wagon coding bootcamp, and a great deal of self-learning. I have a deep appreciation for the aesthetics and user experience aspects of frontend development, yet my true passion lies in what remains invisible to the user and in building the logic of applications.</p>
             </div>
           </div>
         </div>
