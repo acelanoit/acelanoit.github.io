@@ -14,11 +14,10 @@ export default function Canvas() {
     //////////////////// Enemy ////////////////////
     const enemy = new Image();
     enemy.src = "images/canvas-assets/bug.png";
-    const enemyScale = 0.28;
-    const enemyWidth = 229 * enemyScale;
-    const enemyHeight = 171 * enemyScale;
+    const enemyWidth = 64.12;
+    const enemyHeight = 47.88;
     let enemyX = canvas.width * (0.5 + Math.random() * 0.3);
-    let enemyY = canvas.height - 171 * enemyScale - (canvas.height * 0.25);
+    let enemyY = canvas.height - enemyHeight - (canvas.height * 0.25);
     let enemyFrame = 0;
     let enemyDefeated = false;
 
@@ -59,13 +58,10 @@ export default function Canvas() {
     const playerIdleImages = createImageArray("IDLE", 10);
     const playerRunImages = createImageArray("RUN", 10);
     const playerAttackImages = createImageArray("ATTACK", 10);
-    const spriteWidth = 1800;
-    const spriteHeight = 1000;
-    const playerScale = 0.05;
-    const playerWidth = spriteWidth * playerScale;
-    const playerHeight = spriteHeight * playerScale;
+    const playerWidth = 90;
+    const playerHeight = 50;
     let playerX = canvas.width * 0.05;
-    let playerY = canvas.height - spriteHeight * playerScale - canvas.height * 0.25;
+    let playerY = canvas.height - playerHeight - canvas.height * 0.25;
     let playerFrame = 0;
     let playerStance = "idle";
     let playerSpeed = 0;
@@ -135,9 +131,8 @@ export default function Canvas() {
     //////////////////// Explosion ////////////////////
     const explosion = new Image();
     explosion.src = "images/canvas-assets/boom.png";
-    const explosionScale = 0.4;
-    const explosionWidth = 200 * explosionScale;
-    const explosionHeight = 179 * explosionScale;
+    const explosionWidth = 80;
+    const explosionHeight = 71.6;
     let explosionFrame = 0;
     let explosionTimer = 0;
     let explosionDisplayed = false;
@@ -154,8 +149,8 @@ export default function Canvas() {
 
     function explosionDraw() {
       // Calculate the position of the explosion on top of the enemy
-      const explosionX = enemyX + enemyWidth * 0.5 - 100 * explosionScale; // Adjust the X coordinate for centering the explosion
-      const explosionY = enemyY * 1.2 - 89 * explosionScale; // Adjust the Y coordinate for proper alignment
+      const explosionX = enemyX + enemyWidth * 0.5 - 40; // Adjust the X coordinate for centering the explosion
+      const explosionY = enemyY * 1.2 - 35.6; // Adjust the Y coordinate for proper alignment
 
       ctx.drawImage(
         explosion,
