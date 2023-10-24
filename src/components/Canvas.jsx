@@ -1,12 +1,20 @@
 import React, { useEffect, useRef } from "react";
 
 export default function Canvas() {
-  const canvasRef = useRef(null);
+  const uiLayerRef = useRef(null);
+  const gameLayerRef = useRef(null);
+  const backgroundLayerRef = useRef(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d", { alpha: false });
-    canvas.height = canvas.width * 0.7495;
+    const uiLayer = uiLayerRef.current;
+    const ctxUiLayer = uiLayer.getContext("2d");
+    const gameLayer = gameLayerRef.current;
+    const ctxGameLayer = gameLayer.getContext("2d");
+    const backgroundLayer = backgroundLayerRef.current;
+    const ctxBackgroundLayer = backgroundLayer.getContext("2d");
+    uiLayer.height = uiLayer.width * 0.7495;
+    gameLayer.height = uiLayer.width * 0.7495;
+    backgroundLayer.height = uiLayer.width * 0.7495;
     const fps = 20;
     const frameInterval = 1000 / fps;
     let frameTimer = 0;
@@ -16,8 +24,8 @@ export default function Canvas() {
     enemy.src = "images/canvas-assets/bug.png";
     const enemyWidth = 64.12;
     const enemyHeight = 47.88;
-    let enemyX = canvas.width * (0.5 + Math.random() * 0.3);
-    let enemyY = canvas.height - enemyHeight - (canvas.height * 0.25);
+    let enemyX = gameLayer.width * (0.5 + Math.random() * 0.3);
+    let enemyY = gameLayer.height - enemyHeight - (gameLayer.height * 0.25);
     let enemyFrame = 0;
     let enemyDefeated = false;
 
@@ -60,8 +68,8 @@ export default function Canvas() {
     const playerAttackImages = createImageArray("ATTACK", 10);
     const playerWidth = 90;
     const playerHeight = 50;
-    let playerX = canvas.width * 0.05;
-    let playerY = canvas.height - playerHeight - canvas.height * 0.25;
+    let playerX = gameLayer.width * 0.05;
+    let playerY = gameLayer.height - playerHeight - gameLayer.height * 0.25;
     let playerFrame = 0;
     let playerStance = "idle";
     let playerSpeed = 0;
@@ -120,11 +128,12 @@ export default function Canvas() {
     let randomText = texts[Math.floor(Math.random() * texts.length)];
     let textDisplayed = false;
 
-    function drawText(text, animationTimer) {
+    function drawText(ctx, text, animationTimer) {
+      ctx.clearRect(0, 0, uiLayer.width, uiLayer.height);
       ctx.font = "1rem Gothic";
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
-      ctx.fillText(text, canvas.width * 0.5, canvas.height * 0.47);
+      ctx.fillText(text, uiLayer.width * 0.5, uiLayer.height * 0.47);
       if (animationTimer > 2000) textDisplayed = true;
     }
 
@@ -147,7 +156,7 @@ export default function Canvas() {
       }
     }
 
-    function explosionDraw() {
+    function explosionDraw(ctx) {
       // Calculate the position of the explosion on top of the enemy
       const explosionX = enemyX + enemyWidth * 0.5 - 40; // Adjust the X coordinate for centering the explosion
       const explosionY = enemyY * 1.2 - 35.6; // Adjust the Y coordinate for proper alignment
@@ -183,11 +192,12 @@ export default function Canvas() {
     let animationTimer = 0;
 
     function reset() {
+      ctxBackgroundLayer.clearRect(0, 0, backgroundLayer.width, backgroundLayer.height);
       enemyFrame = 0;
-      enemyX = canvas.width * (0.5 + Math.random() * 0.3);
+      enemyX = backgroundLayer.width * (0.5 + Math.random() * 0.3);
       enemyDefeated = false;
       playerFrame = 0;
-      playerX = canvas.width * 0.05;
+      playerX = backgroundLayer.width * 0.05;
       randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
       randomText = texts[Math.floor(Math.random() * texts.length)];
       textDisplayed = false;
@@ -205,26 +215,27 @@ export default function Canvas() {
       const deltaTime = timeStamp - lastTime;
       lastTime = timeStamp;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(randomBackground, 0, 0, canvas.width, canvas.height);
+      ctxGameLayer.clearRect(0, 0, gameLayer.width, gameLayer.height);
+      ctxBackgroundLayer.drawImage(randomBackground, 0, 0, backgroundLayer.width, backgroundLayer.height);
 
       // Draw the enemy first
       if (!enemyDefeated) {
         enemyUpdate(deltaTime);
-        enemyDraw(ctx);
+        enemyDraw(ctxGameLayer);
       }
 
       // Draw the explosion if it's displayed
       if (explosionDisplayed) {
         explosionUpdate();
-        explosionDraw();
+        explosionDraw(ctxGameLayer);
       }
 
       playerUpdate(deltaTime);
-      playerDraw(ctx, playerStance);
+      playerDraw(ctxGameLayer, playerStance);
 
       animationTimer += deltaTime;
-      if (!textDisplayed) drawText(randomText, animationTimer);
+      if (!textDisplayed) drawText(ctxUiLayer, randomText, animationTimer);
+      else ctxUiLayer.clearRect(0, 0, uiLayer.width, uiLayer.height);
       if (animationTimer > 3000 && playerStance === "idle" && !enemyDefeated) {
         playerFrame = 0;
         playerStance = "run";
@@ -246,5 +257,11 @@ export default function Canvas() {
     }
   }, []);
 
-  return <canvas ref={canvasRef} id="canvas1"></canvas>;
+  return (
+    <div className="canvas-container">
+      <canvas ref={uiLayerRef} id="ui-layer"></canvas>
+      <canvas ref={gameLayerRef} id="game-layer"></canvas>
+      <canvas ref={backgroundLayerRef} id="background-layer"></canvas>
+    </div>
+  );
 }
