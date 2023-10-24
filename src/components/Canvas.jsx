@@ -11,7 +11,7 @@ export default function Canvas() {
     const gameLayer = gameLayerRef.current;
     const ctxGameLayer = gameLayer.getContext("2d");
     const backgroundLayer = backgroundLayerRef.current;
-    const ctxBackgroundLayer = backgroundLayer.getContext("2d");
+    const ctxBackgroundLayer = backgroundLayer.getContext("2d", { alpha: false });
     uiLayer.height = uiLayer.width * 0.7495;
     gameLayer.height = uiLayer.width * 0.7495;
     backgroundLayer.height = uiLayer.width * 0.7495;
