@@ -9,6 +9,9 @@ export default function Skills() {
         <h2 className="mb-5">The languages I speak:</h2>
         <div className="row">
           <div className="col-6 col-md-4 col-lg-2 my-3">
+            <img className={isMobile ? "devicon w-25" : "devicon"} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="angular" />
+          </div>
+          <div className="col-6 col-md-4 col-lg-2 my-3">
             <img className={isMobile ? "devicon w-25" : "devicon"} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original-wordmark.svg" alt="bootstrap" />
           </div>
           <div className="col-6 col-md-4 col-lg-2 my-3">
@@ -39,6 +42,9 @@ export default function Skills() {
             <img className={isMobile ? "devicon w-25" : "devicon"} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" />
           </div>
           <div className="col-6 col-md-4 col-lg-2 my-3">
+            <img className={isMobile ? "devicon w-25" : "devicon"} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" alt="nextjs" />
+          </div>
+          <div className="col-6 col-md-4 col-lg-2 my-3">
             <img className={isMobile ? "devicon w-25" : "devicon"} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" />
           </div>
           <div className="col-6 col-md-4 col-lg-2 my-3">
@@ -55,6 +61,9 @@ export default function Skills() {
           </div>
           <div className="col-6 col-md-4 col-lg-2 my-3">
             <img className={isMobile ? "devicon w-25" : "devicon"} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original-wordmark.svg" alt="sqlite" />
+          </div>
+          <div className="col-6 col-md-4 col-lg-2 my-3">
+            <img className={isMobile ? "devicon w-25" : "devicon"} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" alt="tailwindcss" />
           </div>
           <div className="col-6 col-md-4 col-lg-2 my-3">
             <img className={isMobile ? "devicon w-25" : "devicon"} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="typescript" />
